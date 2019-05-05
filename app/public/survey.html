@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .pic_of_match {
+            height: 150px;
+            width: 150px;
+        }
+
+        #pic_name,
+        #modle_txt {
+            font-weight: bold;
+        }
+    </style>
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
+
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 3px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+
+        #myInput {
+            /* border-box: box-sizing; */
+            background-image: url('searchicon.png');
+            background-position: 14px 12px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 14px 20px 12px 45px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            min-width: 230px;
+            overflow: auto;
+            border: 1px solid #ddd;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content option {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown option:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Survey Questions</h2>
+    <hr>
+
+    <h3><strong>About You</strong></h3>
+    <h4>Name (Required)</h4>
+    <input type="text" id="name" class="form-control" required="">
+
+    <h4>Link to Photo Image (Required)</h4>
+    <input type="text" id="photo" class="form-control" required="">
+
+    <hr>
+
+    <h3><strong>Question 1</strong></h3>
+    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+    <input type="text" placeholder="Search.." id="selection1" readonly>
+    <div class="dropdown">
+        <button id='1' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle1"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown1" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput1" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <h3><strong>Question 2</strong></h3>
+    <h4>You hate traffic more than you hate getting up early so you wake up before 6am.</h4>
+    <input type="text" placeholder="Search.." id="selection2" readonly>
+    <div class="dropdown">
+        <button id='2' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle2"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown2" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput2" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 3</strong></h3>
+    <h4>You feel more energetic after spending time with a group of people.</h4>
+    <input type="text" placeholder="Search.." id="selection3" readonly>
+    <div class="dropdown">
+        <button id='3' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle3"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown3" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput3" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 4</strong></h3>
+    <h4>You think the earth's climate never changed until the recent global dependence on oil.</h4>
+    <input type="text" placeholder="Search.." id="selection4" readonly>
+    <div class="dropdown">
+        <button id='4' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle4"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown4" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput4" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+    <hr>
+
+    <h3><strong>Question 5</strong></h3>
+    <h4>You like cats more than dogs.</h4>
+    <input type="text" placeholder="Search.." id="selection5" readonly>
+    <div class="dropdown">
+        <button id='5' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle5"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown5" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput5" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 6</strong></h3>
+    <h4>You wonder why plain cheese pizza even exists.</h4>
+    <input type="text" placeholder="Search.." id="selection6" readonly>
+    <div class="dropdown">
+        <button id='6' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle6"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown6" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput6" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 7</strong></h3>
+    <h4>You would rather watch soccer than football.</h4>
+    <input type="text" placeholder="Search.." id="selection7" readonly>
+    <div class="dropdown">
+        <button id='7' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle7"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown7" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput7" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 8</strong></h3>
+    <h4>You know how to use a cassette player.</h4>
+    <input type="text" placeholder="Search.." id="selection8" readonly>
+    <div class="dropdown">
+        <button id='8' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle8"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown8" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput8" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 9</strong></h3>
+    <h4>You have more than 2 siblings.</h4>
+    <input type="text" placeholder="Search.." id="selection9" readonly>
+    <div class="dropdown">
+        <button id='9' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle9"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown9" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput9" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3><strong>Question 10</strong></h3>
+    <h4>You prefer Coke over Pepsi.</h4>
+    <input type="text" placeholder="Search.." id="selection0" readonly>
+    <div class="dropdown">
+        <button id='0' onclick="myFunction(this.id)" class="dropbtn"><i class="fas fa-angle-down"
+                id="fontawesome_toggle0"></i></button>
+        <!-- <i class="fas fa-angle-up"></i> -->
+
+        <!-- <input type="text" placeholder="Search.." id="test"> -->
+        <div id="myDropdown0" class="dropdown-content">
+            <input type="text" placeholder="Search.." id="myInput0" onkeyup="filterFunction(this)">
+            <option value="">(Strongly Disagree)</option>
+            <option value="1" onclick='clickfunc(this)'>1</option>
+            <option value="2" onclick='clickfunc(this)'>2</option>
+            <option value="3" onclick='clickfunc(this)'>3</option>
+            <option value="4" onclick='clickfunc(this)'>4</option>
+            <option id="test" value="5" onclick='clickfunc(this)'>5</option>
+            <option value="">(Strongly Agree)</option>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+            aria-hidden="true"></i>
+        Submit</button>
+
+
+    <!-- <h2>Modal Example</h2> -->
+
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content  -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- <p>Some text in the Modal..</p> -->
+        </div>
+
+    </div>
+
+
+
+
+</body>
+
+
+<script>
+
+
+    // Modal Modal Modal Modal Modal Modal Modal Modal 
+    // Modal Modal Modal Modal Modal Modal Modal Modal 
+    // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    // btn.onclick = function () {
+    //     modal.style.display = "block";
+    // }
+
+    // When the user clicks on <span> (x), close the modal
+    // span.onclick = function () {
+    //     modal.style.display = "none";
+    // }
+
+    $(".modal-content").on("click", function (event) {
+
+        modal.style.display = "none";
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Modal Modal Modal Modal Modal Modal Modal Modal 
+    // Modal Modal Modal Modal Modal Modal Modal Modal 
+
+
+    // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_filter
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction(num) {
+        document.getElementById("myDropdown" + num).classList.toggle("show");
+        change_fontawesome_toggle(num)
+
+    }
+
+    function myFunction_1(partent_id) {
+        document.getElementById("myDropdown" + partent_id).classList.toggle("show");
+        change_fontawesome_toggle(partent_id)
+    }
+
+
+    function filterFunction(a) {
+        console.log("this.parent.id filterFunction: ", a.id)
+        var get_var = a.id;
+        var last_char = get_var[get_var.length - 1]
+        console.log("last_char: ", last_char)
+
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput" + last_char);
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown" + last_char);
+        a = div.getElementsByTagName("option");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    // document.getElementById("myDropdown").addEventListener("click", function () {
+    //     document.getElementById("selection").value = "New text!";
+    //     console.log(this.value)
+    // });
+
+    function clickfunc(obj) {
+        var t = $(obj).text();
+        console.log(t);
+
+        abc = $(obj).parent().attr('id')
+        var lastChar = abc[abc.length - 1];
+
+        document.getElementById("selection" + lastChar).value = t;
+
+        myFunction_1(lastChar)
+
+    }
+
+    function change_fontawesome_toggle(a) {
+        if (document.getElementById("fontawesome_toggle" + a).classList.contains('fa-angle-down')) {
+            console.log("arrow is down")
+            document.getElementById("fontawesome_toggle" + a).classList.remove("fa-angle-down");
+            document.getElementById("fontawesome_toggle" + a).classList.add("fa-angle-up");
+        } else if (document.getElementById("fontawesome_toggle" + a).classList.contains('fa-angle-up')) {
+            console.log("arrow is up")
+            document.getElementById("fontawesome_toggle" + a).classList.remove("fa-angle-up");
+            document.getElementById("fontawesome_toggle" + a).classList.add("fa-angle-down");
+        }
+
+    }
+
+    $(document).on("click", "#test", function (e) {
+        abc = $(e).parent().attr('id')
+        console.log(abc);
+
+
+    });
+
+
+
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
+        var answers = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#selection1").val(),
+                $("#selection2").val(),
+                $("#selection3").val(),
+                $("#selection4").val(),
+                $("#selection5").val(),
+                $("#selection6").val(),
+                $("#selection7").val(),
+                $("#selection8").val(),
+                $("#selection9").val(),
+                $("#selection0").val()
+            ]
+        };
+        console.log("answers", answers)
+        var check_all_answers = true;
+
+        if (answers.name == "" || answers.photo == "") {
+            check_all_answers = false;
+        }
+
+        for (i = 0; i < answers.scores.length; i++) {
+            console.log("answers[i]", answers.scores[i])
+            if (answers.scores[i] == "") {
+                check_all_answers = false;
+            }
+        }
+
+        if (check_all_answers) {
+            $.post("/api/friends", answers, function (data) {
+                console.log("/api/friends.RESPONSE ", data)
+                $(".modal-content").append(add_data_name);
+                $(".modal-content").empty();
+                $(".modal-content").append('<span class="close">&times;</span>')
+
+                var add_data_name = $("<div>");
+                var p1 = $("<p1>");
+                var p2 = $("<p1>");
+                var hr = $("<hr>");
+                var image = $("<img>");
+                image.addClass("pic_of_match");
+                image.attr("src", data.photo);
+                p2 = $("<p1 id='modle_txt'>").text("Best Match");//add name 
+                p1 = $("<p1 id='pic_name'>").text("Name: " + data.name);//add name 
+
+
+                add_data_name.append(p2);
+                add_data_name.append(hr);
+                add_data_name.append(p1);
+                add_data_name.append("<br>");
+                add_data_name.append(image);
+
+                $(".modal-content").append(add_data_name);
+
+                display_modal()
+
+
+            });
+
+
+        } else {
+            $(".modal-content").empty();
+            $(".modal-content").append('<span class="close">&times;</span>')
+
+            var p1 = $("<p1>");
+            p1 = $("<p1 id='pic_name'>").text("Please answer all questions.");//add name 
+            $(".modal-content").append(p1);
+            display_modal()
+
+        }
+
+
+
+
+    });
+
+
+    function display_modal() {
+        modal.style.display = "block";
+    }
+
+
+    function a() {
+        document.getElementById("selection0").value = "";
+    }
+    a()
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</html>
